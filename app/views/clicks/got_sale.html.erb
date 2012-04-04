@@ -1,0 +1,25 @@
+
+
+<div class="got sale">
+	<h1>Got Sale?</h1>
+	
+	<%= form_for(:clicks, :url  => {:action  => 'got_sale_update', :id  => @clicks.id}) do |f| %>
+	
+	<table summary="got sale fields">
+		<tr>
+			<th>Click ID</th>
+			<td><%= @clicks.id %></td>
+		</tr>
+		<tr>
+			<th>Sale?</th>
+			<td><%= f.check_box(:sale) %></td>
+		</tr>
+	</table>
+	
+	<div class="form-buttons">
+		<%= submit_tag("Record Sale") %>
+	</div>
+	
+	<% end %>
+	
+</div>
