@@ -32,8 +32,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: true
-  database: lewis_fym_production
+  database: ewis_fym_production
   pool: 5
-  username: lewis_fym
+  username: ewis_fym
   password: b9Tri4E4l-xZ
   socket: /var/lib/mysql/mysql.sock
