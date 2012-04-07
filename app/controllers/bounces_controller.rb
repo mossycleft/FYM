@@ -2,7 +2,6 @@ class BouncesController < ApplicationController
     layout 'bounces'
   def index
 
-
   end
   
   def redirect
