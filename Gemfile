@@ -7,6 +7,8 @@ gem 'rails', '3.2.3'
 
 gem "mysql2", "0.3.11"
 
+gem 'rb-readline', '0.4.2'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
