@@ -5,12 +5,12 @@
 	<%= raw @link.affiliate.remarketing_code %>  
 	<% end %>
 	
-  <title>FYM | <% if not  @link.nil? %> <%= @link.name %>  <% end %> </title>
+  <title><% if not  @link.nil? %> <%= @link.name %> | <%= @click_id %>  <% end %> </title>
 	<% if not  @link.nil? %>
 	<% if @link.affiliate.id = 1 %>
-	<meta http-equiv="refresh" content="2;URL='http://www.awin1.com/cread.php?awinmid=3253&awinaffid=102971&clickref=<%= @click_id %>&p=<%= @link.url %>'" /> 
+	<meta http-equiv="refresh" content="1;URL='http://www.awin1.com/cread.php?awinmid=3253&awinaffid=102971&clickref=<%= @click_id %>&p=<%= @link.url %>'" /> 
 	<% elsif @link.affiliate.id = 2 %>
-	<meta http-equiv="refresh" content="2;URL='http://clkuk.tradedoubler.com/click?p(208022)a(1966660)g(19915972)epi(<%= @click_id %>)url(<%= @link.url %>'" /> 
+	<meta http-equiv="refresh" content="1;URL='http://clkuk.tradedoubler.com/click?p(208022)a(1966660)g(19915972)epi(<%= @click_id %>)url(<%= @link.url %>'" /> 
 	<% end %>
 	<% end %>
 

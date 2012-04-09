@@ -11,6 +11,7 @@ class CreateClicks < ActiveRecord::Migration
       t.string    "ref_platform"
       t.string    "ref_keyword"
       t.boolean   "sale", :default  => false
+      t.boolean   "real_click", :default  => true
       t.timestamps
     end
     add_index("clicks", "link_id")

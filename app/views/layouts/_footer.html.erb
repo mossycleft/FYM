@@ -1,7 +1,8 @@
 <footer>
 	<nav class="round">
 		<ul>
-			<li><%= link_to "Got Sale?", {:action  => 'got_sale'}  %></li>
+			<li><%= link_to "Got Sale?", {:action  => 'got_sale', :id  => @last_click}  %></li>
+			<li><%= link_to "Click View", {:action  => 'index'}  %></li>
 
 		</ul>
 		</nav>

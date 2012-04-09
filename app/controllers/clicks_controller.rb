@@ -7,7 +7,7 @@ class ClicksController < ApplicationController
   
   def list
     @clicks = Click.order("clicks.id DESC").limit(50)
-    
+    @last_click = Click.last
   end
   
   def got_sale

@@ -14,9 +14,22 @@ class BouncesController < ApplicationController
     @click.ref_ip       = request.env["REMOTE_ADDR"]
     @click.ref_domain   = request.env["HTTP_HOST"]
     @click.ref_keyword  = request.env["QUERY_STRING"]
+    real_click
     @link.clicks        << @click
-    @click_id           = @link.clicks.last.id
+    @click_id           = @click.id
+
   end
+  
+  def real_click
+    if not @click.ref_os.scan(/Googlebot/i).empty?
+      @click.real_click = false
+    end
+    recent_clicks = Click.order("clicks.id DESC").limit(5).offset(1)
+    if recent_clicks.detect  {|r| r["ref_ip"] = @click.ref_ip }
+      @click.real_click = false
+    end
+  end
+
   def platform_parser(platform)
     if not platform.scan(/iPhone/i).empty?
       @click.ref_platform = "iPhone"
@@ -24,12 +37,13 @@ class BouncesController < ApplicationController
       @click.ref_platform = "iPad"
     elsif not platform.scan(/Android/i).empty?
       @click.ref_platform = "Android"
-    elsif not platform.scan(/Android/i).empty?
-      @click.ref_platform = "Android"
+    elsif not platform.scan(/Nokia/i).empty?
+      @click.ref_platform = "Nokia"
+    elsif not platform.scan(/BlackBerry/i).empty?
+      @click.ref_platform = "BlackBerry"
     else
       @click.ref_platform = "Desktop"
     end
-    
   end
   
   def language_parser(language)
@@ -52,7 +66,7 @@ class BouncesController < ApplicationController
     else
       @click.ref_os = user_agent
     end
-    
+  
     if not user_agent.scan(/Chrome/i).empty?
       @click.ref_browser = "Chrome"
     elsif not user_agent.scan(/Firefox/i).empty?

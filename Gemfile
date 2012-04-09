@@ -9,6 +9,8 @@ gem "mysql2", "0.3.11"
 
 gem 'rb-readline', '0.4.2'
 
+gem 'passenger', '3.0.11'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

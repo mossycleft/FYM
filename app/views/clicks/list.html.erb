@@ -13,6 +13,7 @@
 			<th>Ref Platform</th>
 			<th>Ref Keyword</th>
 			<th>Sale?</th>
+			<th>Real Click?</th>
 			<th>Time</th>
 		</tr>
 		<% @clicks.each do |click| %>
@@ -28,6 +29,7 @@
 			<td><%= click.ref_platform %></td>
 			<td><%= click.ref_keyword %></td>
 			<td><%= click.sale %></td>
+			<td><%= click.real_click %></td>
 			<td><%= click.created_at %></td>
 		</tr>
 		<% end %>
