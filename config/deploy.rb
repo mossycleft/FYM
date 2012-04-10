@@ -17,7 +17,7 @@ set :server_name, "69.25.137.132"
 
 # Your svn / git login name
 
-set :scm_username , "mongoose"
+set :scm_username , "mossycleft"
 
 set :scm_password, Proc.new { CLI.password_prompt "SVN Password: "}
 

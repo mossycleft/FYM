@@ -25,7 +25,7 @@ class BouncesController < ApplicationController
       @click.real_click = false
     end
     recent_clicks = Click.order("clicks.id DESC").limit(5).offset(1)
-    if recent_clicks.detect  {|r| r["ref_ip"] = @click.ref_ip }
+    if recent_clicks.detect  {|r| r["ref_ip"] == @click.ref_ip }
       @click.real_click = false
     end
   end
