@@ -5,6 +5,12 @@ class ClicksController < ApplicationController
     render('list')
   end
   
+  def real_clicks
+    @clicks = Click.order("clicks.id DESC").limit(50).find(:all, :conditions => { :real_click => true })
+    @last_click = Click.last
+    render('list')
+  end
+  
   def list
     @clicks = Click.order("clicks.id DESC").limit(50)
     @last_click = Click.last
