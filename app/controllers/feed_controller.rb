@@ -1,4 +1,5 @@
 class FeedController < ApplicationController
+require 'mechanize'
   
   def index
     
@@ -17,6 +18,7 @@ class FeedController < ApplicationController
   end
   
   def image_graber
+    
     
   end
 end
