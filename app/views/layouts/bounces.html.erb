@@ -7,12 +7,14 @@
 	
   <title><% if not  @link.nil? %> <%= @link.name %> | <%= @click_id %>  <% end %> </title>
 	<% if not  @link.nil? %>
-	<% if @link.affiliate.id = 1 %>
-	<meta http-equiv="refresh" content="1;URL='http://www.awin1.com/cread.php?awinmid=3253&awinaffid=102971&clickref=<%= @click_id %>&p=<%= @link.url %>'" /> 
-	<% elsif @link.affiliate.id = 2 %>
-	<meta http-equiv="refresh" content="1;URL='http://clkuk.tradedoubler.com/click?p(208022)a(1966660)g(19915972)epi(<%= @click_id %>)url(<%= @link.url %>'" /> 
+	<% if @link.affiliate_id == 1 %>
+	<meta http-equiv="refresh" content="10;URL='http://www.awin1.com/cread.php?awinmid=3253&awinaffid=102971&clickref=<%= @click_id %>&p=<%= @link.url %>'" /> 
+	<% end %>
+	<% if @link.affiliate_id == 2 %>
+	<meta http-equiv="refresh" content="10;URL='http://clkuk.tradedoubler.com/click?p(19045)a(1966660)g(16898338)epi(<%= @click_id %>)url(<%= @link.url %>)'" />
 	<% end %>
 	<% end %>
+	
 
   <%= csrf_meta_tag %>
 </head>
