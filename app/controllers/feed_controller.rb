@@ -1,5 +1,4 @@
 class FeedController < ApplicationController
-require 'mechanize'
   
   def index
     
