@@ -10,6 +10,7 @@ doc/
 .DS_Store
 *.csv
 config/database.yml
+database.yml
 
 
 
