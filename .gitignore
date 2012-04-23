@@ -9,7 +9,7 @@ doc/
 .project
 .DS_Store
 *.csv
-config/database.yml
+
 
 
 
