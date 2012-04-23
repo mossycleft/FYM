@@ -12,7 +12,7 @@ development:
   database: fym_development
   pool: 5
   username: fym
-  password: o5kar1337
+  password: 
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -35,5 +35,5 @@ production:
   database: ewis_fym_production
   pool: 5
   username: ewis_fym
-  password: b9Tri4E4l-xZ
+  password: 
   socket: /var/lib/mysql/mysql.sock
