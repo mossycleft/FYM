@@ -1,7 +1,6 @@
 Fym::Application.routes.draw do
   
-
-  
+  match '/bounces/:id', :to => 'bounces#redirect'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -35,11 +35,14 @@ ActiveRecord::Schema.define(:version => 20120401195451) do
     t.string   "ref_keyword"
     t.boolean  "sale",         :default => false
     t.boolean  "real_click",   :default => true
+    t.boolean  "processed",    :default => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
   end
 
   add_index "clicks", ["link_id"], :name => "index_clicks_on_link_id"
+  add_index "clicks", ["processed"], :name => "index_clicks_on_processed"
+  add_index "clicks", ["real_click"], :name => "index_clicks_on_real_click"
 
   create_table "feeds", :force => true do |t|
     t.string   "itemid"

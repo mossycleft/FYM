@@ -12,9 +12,12 @@ class CreateClicks < ActiveRecord::Migration
       t.string    "ref_keyword"
       t.boolean   "sale", :default  => false
       t.boolean   "real_click", :default  => true
+      t.boolean   "processed", :default  => false
       t.timestamps
     end
     add_index("clicks", "link_id")
+    add_index("clicks", "processed")
+    add_index("clicks", "real_click")
   end
 
   def self.down
