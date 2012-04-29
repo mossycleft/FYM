@@ -20,7 +20,7 @@
 		<tr>
 			<td><%= click.id %></td>
 			<td><%= click.link.name %></td>
-			<td><%= click.ref_url %></td>
+			<td><%= truncate(click.ref_url, :length => 25, :omission => '...')%></td>
 			<td><%= click.ref_ip %></td>
 			<td><%= click.ref_domain %></td>
 			<td><%= click.ref_language %></td>
