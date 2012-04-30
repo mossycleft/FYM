@@ -21,7 +21,7 @@ class ClicksController < ApplicationController
   
   def id_real_click(click)
     return false if not click.ref_os.scan(/Googlebot/i).empty?
-    recent_clicks = Click.order("clicks.id DESC").limit(5).offset(1)
+    recent_clicks = Click.where("id < #{click.id}" ).order("clicks.id DESC").limit(5)
     return false if recent_clicks.detect  {|r| r["ref_ip"] == click.ref_ip }
     return true
   end
