@@ -120,7 +120,7 @@ namespace(:customs) do
 end
 
 after "deploy:update_code", "customs:config"
-after "deploy", "deploy:cleanup"
+
 
 
 ###### END DEPLOY.RB ######
