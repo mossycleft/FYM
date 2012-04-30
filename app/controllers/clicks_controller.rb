@@ -27,6 +27,8 @@ class ClicksController < ApplicationController
   end
   
   def id_platform(click)
+    return "null" if click.ref_platform == nil
+    return "Googlebot" if not click.ref_os.scan(/googlebot/i).empty?
     return "iPhone" if not click.ref_platform.scan(/iPhone/i).empty?
     return "iPad" if not click.ref_platform.scan(/iPad/i).empty?
     return "Android" if not click.ref_platform.scan(/Android/i).empty?
@@ -36,21 +38,29 @@ class ClicksController < ApplicationController
   end
   
   def id_language(click)
+    return "null" if click.ref_language == nil
     return "ENG" if not click.ref_language.scan(/en-/i).empty?
   end
   
   def id_user_agent_os(click)
+    return "null"if click.ref_os == nil
     return "Googlebot" if not click.ref_os.scan(/googlebot/i).empty?
     return "Windows" if not click.ref_os.scan(/win/i).empty?
     return "OS X" if not click.ref_os.scan(/os x/i).empty?
     return "Linux" if not click.ref_os.scan(/linux/i).empty?
+    return "Curl" if not click.ref_browser.scan(/curl/i).empty?
+    return "ApacheBench" if not click.ref_browser.scan(/ApacheBench/i).empty?
   end
   
   def id_user_agent_browser(click)
-    return "Null" if click.ref_browser == nil
+    return "null" if click.ref_browser == nil
+    return "Googlebot" if not click.ref_os.scan(/googlebot/i).empty?
     return "Chrome" if not click.ref_browser.scan(/Chrome/i).empty?
     return "Firefox" if not click.ref_browser.scan(/Firefox/i).empty?
     return "Safari" if not click.ref_browser.scan(/Safari/i).empty?
+    return "Curl" if not click.ref_browser.scan(/curl/i).empty?
+    return "ApacheBench" if not click.ref_browser.scan(/ApacheBench/i).empty?
+    return click.ref_browser
   end
   
   def real_clicks

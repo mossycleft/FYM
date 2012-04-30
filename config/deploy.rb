@@ -111,6 +111,16 @@ namespace :passenger do
 
 end
 
+namespace(:customs) do
+  task :config, :roles => :app do
+    run <<-CMD
+      ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml
+    CMD
+  end
+end
+
+after "deploy:update_code", "customs:config"
+after "deploy", "deploy:cleanup"
 
 
 ###### END DEPLOY.RB ######
