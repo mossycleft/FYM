@@ -45,7 +45,7 @@ class ClicksController < ApplicationController
   def id_user_agent_os(click)
     return "null"if click.ref_os == nil
     return "Googlebot" if not click.ref_os.scan(/googlebot/i).empty?
-    return "Windows" if not click.ref_os.scan(/win/i).empty?
+    return "Windows" if not click.ref_os.scan(/Windows/i).empty?
     return "OS X" if not click.ref_os.scan(/os x/i).empty?
     return "Linux" if not click.ref_os.scan(/linux/i).empty?
     return "Curl" if not click.ref_browser.scan(/curl/i).empty?
