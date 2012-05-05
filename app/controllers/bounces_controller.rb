@@ -12,7 +12,6 @@ class BouncesController < ApplicationController
     @ref_user_agent         = request.env["HTTP_USER_AGENT"]
     @ref_ip                 = request.env["REMOTE_ADDR"]
     save_referal_info(params[:id])
-
   end
   
   def save_referal_info(link_id_from_params)
@@ -24,7 +23,5 @@ class BouncesController < ApplicationController
     @click.ref_ip           = @ref_ip
     @click.link_id          = link_id_from_params
     @click.save
-    # @link.clicks            << @click
   end
-  
 end
