@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20120401195451) do
   create_table "affiliates", :force => true do |t|
     t.string   "affiliate_name"
     t.text     "remarketing_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "affiliates", ["affiliate_name"], :name => "index_affiliates_on_affiliate_name"
@@ -25,24 +25,26 @@ ActiveRecord::Schema.define(:version => 20120401195451) do
 
   create_table "clicks", :force => true do |t|
     t.integer  "link_id"
+    t.string   "click_uuid"
+    t.string   "ref_user_agent"
     t.string   "ref_url"
     t.string   "ref_ip"
-    t.string   "ref_domain"
-    t.string   "ref_language"
     t.string   "ref_browser"
     t.string   "ref_os"
     t.string   "ref_platform"
     t.string   "ref_keyword"
-    t.boolean  "sale",         :default => false
-    t.boolean  "real_click",   :default => true
-    t.boolean  "processed",    :default => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.boolean  "sale",           :default => false
+    t.boolean  "real_click",     :default => true
+    t.boolean  "processed",      :default => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
+  add_index "clicks", ["click_uuid"], :name => "index_clicks_on_click_uuid"
   add_index "clicks", ["link_id"], :name => "index_clicks_on_link_id"
   add_index "clicks", ["processed"], :name => "index_clicks_on_processed"
   add_index "clicks", ["real_click"], :name => "index_clicks_on_real_click"
+  add_index "clicks", ["sale"], :name => "index_clicks_on_sale"
 
   create_table "feeds", :force => true do |t|
     t.string   "itemid"
@@ -67,11 +69,13 @@ ActiveRecord::Schema.define(:version => 20120401195451) do
     t.integer  "affiliate_id"
     t.string   "name"
     t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
+  add_index "links", ["affiliate_id"], :name => "index_links_on_affiliate_id"
   add_index "links", ["id"], :name => "index_links_on_id"
+  add_index "links", ["name"], :name => "index_links_on_name"
   add_index "links", ["url"], :name => "index_links_on_url"
 
   create_table "users", :force => true do |t|

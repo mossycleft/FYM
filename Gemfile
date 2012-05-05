@@ -13,6 +13,8 @@ gem 'passenger', '3.0.11'
 
 gem "jquery-rails", "2.0.2"
 
+gem "uuid", "2.3.5"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

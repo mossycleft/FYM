@@ -9,6 +9,8 @@ class CreateLinks < ActiveRecord::Migration
     end
       add_index("links", "id")
       add_index("links", "url")
+      add_index("links", "name")
+      add_index("links", "affiliate_id")
   end
 
   def self.down

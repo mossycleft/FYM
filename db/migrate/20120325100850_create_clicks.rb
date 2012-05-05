@@ -2,10 +2,10 @@ class CreateClicks < ActiveRecord::Migration
   def self.up
     create_table :clicks do |t|
       t.integer   "link_id"
+      t.string    "click_uuid"
+      t.string    "ref_user_agent"
       t.string    "ref_url"
       t.string    "ref_ip"
-      t.string    "ref_domain"
-      t.string    "ref_language"
       t.string    "ref_browser"
       t.string    "ref_os"
       t.string    "ref_platform"
@@ -18,6 +18,8 @@ class CreateClicks < ActiveRecord::Migration
     add_index("clicks", "link_id")
     add_index("clicks", "processed")
     add_index("clicks", "real_click")
+    add_index("clicks", "click_uuid")
+    add_index("clicks", "sale")
   end
 
   def self.down
