@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120401195451) do
+ActiveRecord::Schema.define(:version => 20120506115226) do
 
   create_table "affiliates", :force => true do |t|
     t.string   "affiliate_name"
@@ -45,6 +45,22 @@ ActiveRecord::Schema.define(:version => 20120401195451) do
   add_index "clicks", ["processed"], :name => "index_clicks_on_processed"
   add_index "clicks", ["real_click"], :name => "index_clicks_on_real_click"
   add_index "clicks", ["sale"], :name => "index_clicks_on_sale"
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "feeds", :force => true do |t|
     t.string   "itemid"

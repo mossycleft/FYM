@@ -15,6 +15,10 @@ gem "jquery-rails", "2.0.2"
 
 gem "uuid", "2.3.5"
 
+# gem "delayed_job_active_record", "0.3.2"
+# 
+# gem "daemons", "1.1.8"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -21,7 +21,7 @@ class ClicksController < ApplicationController
   
   def id_keyword(click)
     return "null" if click.ref_url == nil
-    return click.ref_url.match(/q=(.*?)&/)[1]
+    return t.match(/q=(.*?)&/)[1] if not t.scan(/q=(.*?)&/).empty?
     return "n/a"
     
   end
