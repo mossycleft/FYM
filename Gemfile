@@ -17,6 +17,10 @@ gem "uuid", "2.3.5"
 
 gem "memcache-client", "1.8.5"
 
+gem "redis", "2.2.2"
+
+gem "whenever", "0.7.3"
+
 # gem "delayed_job_active_record", "0.3.2"
 # 
 # gem "daemons", "1.1.8"

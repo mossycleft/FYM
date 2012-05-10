@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     builder (3.0.0)
+    chronic (0.6.7)
     daemon_controller (1.0.0)
     erubis (2.7.0)
     fastthread (1.0.7)
@@ -82,6 +83,7 @@ GEM
     rb-readline (0.4.2)
     rdoc (3.12)
       json (~> 1.4)
+    redis (2.2.2)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -95,6 +97,9 @@ GEM
     tzinfo (0.3.32)
     uuid (2.3.5)
       macaddr (~> 1.0)
+    whenever (0.7.3)
+      activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
 
 PLATFORMS
   ruby
@@ -106,4 +111,6 @@ DEPENDENCIES
   passenger (= 3.0.11)
   rails (= 3.2.3)
   rb-readline (= 0.4.2)
+  redis (= 2.2.2)
   uuid (= 2.3.5)
+  whenever (= 0.7.3)
