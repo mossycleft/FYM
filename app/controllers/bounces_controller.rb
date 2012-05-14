@@ -1,7 +1,7 @@
 class BouncesController < ApplicationController
   
   layout 'bounces'
-  caches_action :pull_link, :expires_in  => 7.days
+  caches_action :pull_link, :expires_in  => 14.days
   
   def index
     redirect
