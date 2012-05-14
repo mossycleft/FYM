@@ -117,7 +117,7 @@ namespace(:customs) do
       ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml
     CMD
     run <<-CMD
-      ln -nfs #{shared_path}/images #{release_path}/public/images
+      ln -nfs #{shared_path}/images #{release_path}/public/
     CMD
   end
 end
